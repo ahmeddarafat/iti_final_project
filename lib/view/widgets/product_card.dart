@@ -4,18 +4,18 @@ import '../../resources/sytle/app_colors.dart';
 import 'my_text.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({
+  ProductCard({
     Key? key,
     required this.title,
-    required this.description,
-    required this.price,
-    required this.image,
+    this.description,
+    this.price,
+    this.image,
   }) : super(key: key);
 
   final String title;
-  final String description;
-  final String price;
-  final String image;
+  late String? description;
+  late String? price;
+  late String? image;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,7 @@ class ProductCard extends StatelessWidget {
             fontSize: 16,
           ),
           MyText(
-            data: description,
+            data: description!,
             color: AppColors.kGrayColor,
           ),
           const SizedBox(height: 10),
