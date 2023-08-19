@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../resources/constants/app_constants.dart';
+import 'package:iti_final_project/resources/constants/app_assets.dart';
+import '../../resources/sytle/app_colors.dart';
 import 'my_text.dart';
 
 class ProductCard extends StatelessWidget {
@@ -21,15 +22,21 @@ class ProductCard extends StatelessWidget {
     return Container(
       height: 250,
       width: 180,
-      margin: EdgeInsets.only(right: 15),
-      padding: EdgeInsets.all(12),
+      margin: const EdgeInsets.only(right: 15),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: AppColors.kGrayColor.withOpacity(0.5),
+        ),
+        borderRadius: BorderRadius.circular(16),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             child: Center(
               child: Image.asset(
-                getAsset(image),
+                AppAssets.car,
               ),
             ),
           ),
@@ -40,14 +47,14 @@ class ProductCard extends StatelessWidget {
           ),
           MyText(
             data: description,
-            color: kGrayColor,
+            color: AppColors.kGrayColor,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               MyText(
-                data: '\$' + price,
+                data: '\$$price',
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
@@ -56,7 +63,7 @@ class ProductCard extends StatelessWidget {
                 child: Container(
                   alignment: Alignment.center,
                   //child: Icon(Icons.add, color: Colors.white),
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   /*decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     color: kPrimaryColor,
@@ -66,12 +73,6 @@ class ProductCard extends StatelessWidget {
             ],
           )
         ],
-      ),
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: kGrayColor.withOpacity(0.5),
-        ),
-        borderRadius: BorderRadius.circular(16),
       ),
     );
   }

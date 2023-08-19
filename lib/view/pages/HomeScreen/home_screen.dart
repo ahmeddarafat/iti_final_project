@@ -1,31 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:iti_final_project/resources/constants/app_constants.dart';
-import '../widgets/my_text.dart';
-import '../widgets/product_card.dart';
-import '../widgets/search_field.dart';
-import '../widgets/section_header.dart';
+import 'package:iti_final_project/resources/constants/app_assets.dart';
+import '../../../resources/constants/app_constants.dart';
+import '../../../resources/sytle/app_colors.dart';
+import '../../widgets/my_text.dart';
+import '../../widgets/product_card.dart';
+import '../../widgets/search_field.dart';
+import '../../widgets/section_header.dart';
 
 class HomeScreen extends StatelessWidget {
-  final List<String> sliderImages = [
-    'assets/images/slider_image1.jpeg',
-    'assets/images/slider_image2.jpeg',
-    'assets/images/slider_image3.jpeg',
-  ];
 
-  final List<Product> popularCars = [
-    Product(title: 'BMW X5', description: 'BMW', price: '50000', image: 'Car'),
-    Product(title: 'Audi Q7', description: 'Audi', price: '55000', image: 'Car'),
-    Product(title: 'Toyota Camry', description: 'Toyota', price: '45000', image: 'Car'),
-    Product(title: 'Ford Mustang', description: 'Ford', price: '60000', image: 'Car'),
-  ];
-
-  final List<Product> bestSelling = [
-    Product(title: 'Toyota Camry', description: 'Toyota', price: '45000', image: 'Car'),
-    Product(title: 'Ford Mustang', description: 'Ford', price: '60000', image: 'Car'),
-    Product(title: 'BMW X5', description: 'BMW', price: '50000', image: 'Car'),
-    Product(title: 'Audi Q7', description: 'Audi', price: '55000', image: 'Car'),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +21,7 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/images/CarLogo.jpg',
+                AppAssets.carLogo,
                 height: 40,
                 width: 40,
               ),
@@ -46,11 +30,11 @@ class HomeScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset('assets/images/marker.png'),
+                    Image.asset(AppAssets.marker),
                     const SizedBox(width: 5),
                     MyText(
                       data: 'Mansoura, Egypt',
-                      color: kDarkGrayColor,
+                      color: AppColors.kDarkGrayColor,
                       fontWeight: FontWeight.bold,
                       fontSize: 15,
                     ),
@@ -129,11 +113,3 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class Product {
-  final String title;
-  final String description;
-  final String price;
-  final String image;
-
-  Product({required this.title, required this.description, required this.price, required this.image});
-}

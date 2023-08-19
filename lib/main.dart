@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iti_final_project/view/pages/navigation_bar.dart';
+import 'package:iti_final_project/view/pages/NavigationBar/navigation_bar.dart';
 
 void main() {
   runApp(const MyApp());

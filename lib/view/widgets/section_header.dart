@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../resources/constants/app_constants.dart';
+import '../../resources/sytle/app_colors.dart';
 import 'my_text.dart';
 
 class SectionHeader extends StatelessWidget {
@@ -20,14 +21,14 @@ class SectionHeader extends StatelessWidget {
             data: title,
             fontSize: 24,
             fontWeight: FontWeight.bold,
-            color: kPrimaryColor,
+            color: AppColors.kPrimaryColor,
           ),
           TextButton(
             onPressed: onPressed,
             child: MyText(
               data: 'See all',
               fontSize: 16,
-              color: kPrimaryColor,
+              color: AppColors.kPrimaryColor,
             ),
           ),
         ],
