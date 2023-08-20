@@ -19,7 +19,7 @@ class SearchField extends StatelessWidget {
               fontSize: 16
           ),
           filled: true,
-          fillColor: AppColors.kGrayColor.withOpacity(0.15),
+          fillColor: AppColors.kPrimaryColor.withOpacity(0.15),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(18),
             borderSide: BorderSide.none,

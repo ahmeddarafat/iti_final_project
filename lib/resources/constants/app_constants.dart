@@ -4,7 +4,9 @@
 
 }*/
 import 'package:flutter/material.dart';
+import '../../data/models/carCategory.dart';
 import '../../data/models/prodcut_model.dart';
+import '../../view/pages/CategoryScreen/category_screen.dart';
 import 'app_assets.dart';
 
 
@@ -28,6 +30,15 @@ final List<Product> bestSelling = [
   Product(title: 'BMW X5', description: 'BMW', price: '50000', image: AppAssets.car),
   Product(title: 'Audi Q7', description: 'Audi', price: '55000', image: AppAssets.car),
 ];
+
+  final List<CarCategory> carCategories = [
+    CarCategory(title: 'Toyota', image: AppAssets.toyota),
+    CarCategory(title: 'Volkswagen', image: AppAssets.volkswagen),
+    CarCategory(title: 'Ford', image: AppAssets.ford),
+    CarCategory(title: 'Honda', image: AppAssets.honda),
+    CarCategory(title: 'Chevrolet', image: AppAssets.chevrolet),
+    CarCategory(title: 'Nissan', image: AppAssets.nissan),
+  ];
 
 double getHeight(BuildContext context, double fraction, {bool subtractAppBar = true}) {
   final mediaQuery = MediaQuery.of(context);

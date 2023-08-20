@@ -62,12 +62,7 @@ class ProductCard extends StatelessWidget {
                 onTap: () {},
                 child: Container(
                   alignment: Alignment.center,
-                  //child: Icon(Icons.add, color: Colors.white),
                   padding: const EdgeInsets.all(10),
-                  /*decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: kPrimaryColor,
-                  ),*/
                 ),
               ),
             ],

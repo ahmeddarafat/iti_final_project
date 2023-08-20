@@ -9,4 +9,10 @@ class AppAssets{
   static String slider_image1 = "assets/images/slider_image1.jpeg";
   static String slider_image2 = "assets/images/slider_image2.jpeg";
   static String slider_image3 = "assets/images/slider_image3.jpeg";
+  static String nissan = "assets/images/Nissan.jpg";
+  static String chevrolet = "assets/images/Chevrolet.png";
+  static String honda = "assets/images/Honda.png";
+  static String ford= "assets/images/Ford.png";
+  static String volkswagen= "assets/images/Volkswagen.webp";
+  static String toyota= "assets/images/Toyota.png";
 }
