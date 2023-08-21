@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:iti_final_project/resources/styles/app_colors.dart';
+import 'package:iti_final_project/view/pages/NavigationBar/navigation_bar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iti_final_project/data/source/local/app_prefs.dart';
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'ITI Final Project',
             theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              colorScheme: ColorScheme.fromSeed(seedColor: AppColors.kPrimaryColor),
               useMaterial3: true,
             ),
             scrollBehavior: ScrollConfiguration.of(context).copyWith(

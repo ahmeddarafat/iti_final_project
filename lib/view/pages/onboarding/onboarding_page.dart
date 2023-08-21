@@ -58,7 +58,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                 child: PublicText(
                                   txt: "Skip",
                                   size: 18.sp,
-                                  color: AppColors.green,
+                                  color: AppColors.darkBlue,
                                 ),
                               )
                             : const SizedBox(),

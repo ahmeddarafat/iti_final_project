@@ -26,8 +26,8 @@ class CustomDots extends StatelessWidget {
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        border: Border.all(color: AppColors.green),
-        color: index == myindex ? AppColors.green : AppColors.white,
+        border: Border.all(color: AppColors.darkBlue),
+        color: index == myindex ? AppColors.darkBlue : AppColors.white,
       ),
     );
   }

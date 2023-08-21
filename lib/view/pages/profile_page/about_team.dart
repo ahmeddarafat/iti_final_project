@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:iti_task/view/profile_page/profile.dart';
+
+import 'profile.dart';
+
 
 class TeamScreen extends StatelessWidget {
   const TeamScreen({Key? key}) : super(key: key);

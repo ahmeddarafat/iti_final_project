@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:iti_task/view/profile_page/profile.dart';
+
+import 'profile.dart';
+
 
 class AboutAppScreen extends StatelessWidget {
   const AboutAppScreen({Key? key}) : super(key: key);

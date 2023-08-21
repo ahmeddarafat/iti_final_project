@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iti_task/view/profile_page/about_app.dart';
+import 'package:iti_final_project/view/pages/profile_page/about_app.dart';
 
 import 'about_team.dart';
 
