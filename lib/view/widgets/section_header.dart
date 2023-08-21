@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../resources/constants/app_constants.dart';
-import '../../resources/sytle/app_colors.dart';
+import '../../resources/styles/app_colors.dart';
 import 'my_text.dart';
 
 class SectionHeader extends StatelessWidget {

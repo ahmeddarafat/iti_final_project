@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:iti_final_project/resources/constants/app_constants.dart';
-import 'package:iti_final_project/resources/sytle/app_colors.dart';
 import 'package:iti_final_project/view/pages/HomeScreen/home_screen.dart';
-import 'package:iti_final_project/view/pages/ProfileScreen/profile_screen.dart';
+import 'package:iti_final_project/view/pages/profile_page/profile.dart';
 
+import '../../../resources/styles/app_colors.dart';
 import '../CategoryScreen/category_screen.dart';
 
 class Navigationbar extends StatefulWidget {
@@ -18,7 +18,7 @@ class _NavigationbarState extends State<Navigationbar> {
   List<Widget> pages =[
     HomeScreen(),
     CategoryScreen(),
-    ProfileScreen(),
+    ProfileScreen()
   ];
 
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iti_final_project/resources/constants/app_assets.dart';
-import '../../resources/sytle/app_colors.dart';
+import '../../resources/styles/app_colors.dart';
 import 'my_text.dart';
 
 class ProductCard extends StatelessWidget {
