@@ -2,7 +2,8 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iti_final_project/data/source/local/app_prefs.dart';
-
+import 'package:iti_final_project/view/pages/auth/login_screen.dart';
+import 'package:iti_final_project/view/pages/auth/signup_screen.dart';
 import '../../resources/constants/app_constants.dart';
 import '../../view/pages/NavigationBar/navigation_bar.dart';
 
@@ -30,7 +31,7 @@ class OnboardingCubit extends Cubit<OnboardingState> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const Navigationbar(),
+          builder: (context) => LoginScreen(),
         ),
       );
     } else {

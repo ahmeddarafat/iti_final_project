@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:iti_final_project/resources/styles/app_colors.dart';
 import 'package:iti_final_project/view/pages/NavigationBar/navigation_bar.dart';
@@ -7,8 +9,14 @@ import 'package:iti_final_project/data/source/local/app_prefs.dart';
 import 'package:iti_final_project/view/pages/onboarding/onboarding_page.dart';
 import 'package:iti_final_project/view_model/onboarding/onboarding_cubit.dart';
 
+import 'firebase_options.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  //await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
 
   await AppPrefs.init();
   runApp(const MyApp());
