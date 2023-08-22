@@ -42,7 +42,8 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'ITI Final Project',
             theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: AppColors.kPrimaryColor),
+              colorScheme:
+                  ColorScheme.fromSeed(seedColor: AppColors.kPrimaryColor),
               useMaterial3: true,
             ),
             scrollBehavior: ScrollConfiguration.of(context).copyWith(

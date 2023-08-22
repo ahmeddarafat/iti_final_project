@@ -1,12 +1,15 @@
+// ignore_for_file: unused_import
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:iti_final_project/data/source/local/app_prefs.dart';
 import 'package:iti_final_project/view/pages/HomeScreen/home_screen.dart';
 import 'package:iti_final_project/view/pages/auth/signup_screen.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../../../constants.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_textfield.dart';
-
+import '../NavigationBar/navigation_bar.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({super.key});
@@ -72,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 CustomTextField(
                   hintText: "Email",
-                  onChanged: (data)=> email = data,
+                  onChanged: (data) => email = data,
                 ),
                 const SizedBox(
                   height: 20.0,
@@ -80,30 +83,40 @@ class _LoginScreenState extends State<LoginScreen> {
                 CustomTextField(
                   obscureText: true,
                   hintText: "Password",
-                  onChanged: (data)=> password = data,
+                  onChanged: (data) => password = data,
                 ),
                 const SizedBox(
                   height: 25,
                 ),
-                CustomButton(text: "Sign In",
-                  onTap: () async{
-                  if (formKey.currentState!.validate()) {
+                CustomButton(
+                  text: "Sign In",
+                  onTap: () async {
+                    if (formKey.currentState!.validate()) {
                       isLoading = true;
                       setState(() {});
-                    try {
-                      await loginUser();
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => const HomeScreen(),));
-                    } on FirebaseAuthException catch (e) {
-                      if (e.code == 'user-not-found') {
-                        const SnackBar(content: Text('No user found for that email.'));
-                      } else if (e.code == 'wrong-password') {
-                        const SnackBar(content: Text('Wrong password provided for that user.'));
+                      try {
+                        await loginUser();
+                        AppPrefs.setEmail(email!);
+                        if (!mounted) return;
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Navigationbar(),
+                          ),
+                        );
+                      } on FirebaseAuthException catch (e) {
+                        if (e.code == 'user-not-found') {
+                          const SnackBar(
+                              content: Text('No user found for that email.'));
+                        } else if (e.code == 'wrong-password') {
+                          const SnackBar(
+                              content: Text(
+                                  'Wrong password provided for that user.'));
+                        }
                       }
-                    }
                       isLoading = false;
                       setState(() {});
-                  } else {}
+                    } else {}
                   },
                 ),
                 const SizedBox(
@@ -147,9 +160,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> loginUser() async {
-     final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: email!,
-        password: password!
-    );
+    final credential = await FirebaseAuth.instance
+        .signInWithEmailAndPassword(email: email!, password: password!);
   }
 }

@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../../../constants.dart';
+import '../../../data/source/local/app_prefs.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_textfield.dart';
-import '../HomeScreen/home_screen.dart';
-import 'login_screen.dart';
-
+import '../NavigationBar/navigation_bar.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -19,7 +18,6 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-
   bool isLoading = false;
 
   GlobalKey<FormState> formKey = GlobalKey();
@@ -68,10 +66,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ],
                 ),
 
-                SizedBox(height: 20.0.h,),
+                SizedBox(
+                  height: 20.0.h,
+                ),
                 CustomTextField(
                   hintText: "Email",
-                  onChanged: (data)=> email = data,
+                  onChanged: (data) => email = data,
                 ),
                 SizedBox(
                   height: 20.0.h,
@@ -79,34 +79,46 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 CustomTextField(
                   obscureText: true,
                   hintText: "Password",
-                  onChanged: (data)=> password = data,
+                  onChanged: (data) => password = data,
                 ),
                 SizedBox(
                   height: 25.h,
                 ),
-                CustomButton(text: "Sign Up",
-                  onTap: () async{
-                   if (formKey.currentState!.validate()) {
-                       isLoading = true;
-                       setState(() {});
-                    try {
-                      await registerUser();
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => const HomeScreen(),));
-                      const SnackBar(content: Text('Success',));
-                    } on FirebaseAuthException catch (e) {
-                      if (e.code == 'weak-password') {
-                        const SnackBar(content: Text('The password provided is too weak.'));
-
-                      } else if (e.code == 'email-already-in-use') {
-                        const SnackBar(content: Text('The account already exists for that email.'));
+                CustomButton(
+                  text: "Sign Up",
+                  onTap: () async {
+                    if (formKey.currentState!.validate()) {
+                      isLoading = true;
+                      setState(() {});
+                      try {
+                        await registerUser();
+                        AppPrefs.setEmail(email!);
+                        if (!mounted) return;
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Navigationbar(),
+                            ));
+                        const SnackBar(
+                            content: Text(
+                          'Success',
+                        ));
+                      } on FirebaseAuthException catch (e) {
+                        if (e.code == 'weak-password') {
+                          const SnackBar(
+                              content:
+                                  Text('The password provided is too weak.'));
+                        } else if (e.code == 'email-already-in-use') {
+                          const SnackBar(
+                              content: Text(
+                                  'The account already exists for that email.'));
+                        }
+                      } catch (e) {
+                        print(e);
                       }
-                    } catch (e) {
-                      print(e);
-                    }
-                       isLoading = false;
-                       setState(() {});
-                   } else {}
+                      isLoading = false;
+                      setState(() {});
+                    } else {}
                   },
                 ),
                 SizedBox(
@@ -115,17 +127,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("already have an account ? ",
+                    Text(
+                      "already have an account ? ",
                       style: TextStyle(
                         color: kPrimaryColorWhite,
                         fontSize: 17.0.sp,
                       ),
                     ),
                     GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         Navigator.pop(context);
                       },
-                      child: Text("  Login",
+                      child: Text(
+                        "  Login",
                         style: TextStyle(
                           color: kPrimaryColorLightBlue,
                           fontSize: 17.0.sp,
@@ -143,9 +157,5 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   Future<void> registerUser() async {
-     final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      email: email!,
-      password: password!,
-    );
   }
 }

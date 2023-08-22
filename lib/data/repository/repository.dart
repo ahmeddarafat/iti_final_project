@@ -9,6 +9,7 @@ class Repository {
 
   Future<List<CarCategoryModel>> getCarsCategories() async {
     final list = await fbs.getCarCategories();
+    print("list $list");
     return list.map((e) => CarCategoryModel.fromMap(e)).toList();
   }
 

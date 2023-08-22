@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:iti_final_project/resources/styles/app_colors.dart';
 
 class Details extends StatefulWidget {
   Details({Key? key}) : super(key: key);
@@ -44,11 +45,11 @@ class _DetailsState extends State<Details> {
             padding: const EdgeInsets.all(8.0),
             child: Container(
               decoration: BoxDecoration(
-                border: Border.all(width: 10, color: Colors.green),
+                border: Border.all(width: 10, color: AppColors.darkBlue),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Image.network(
-                "https://statusneo.com/wp-content/uploads/2023/02/MicrosoftTeams-image551ad57e01403f080a9df51975ac40b6efba82553c323a742b42b1c71c1e45f1.jpg",
+                "https://images.unsplash.com/flagged/photo-1553505192-acca7d4509be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Ym13fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
                 fit: BoxFit.scaleDown,
               ),
             ),
@@ -81,7 +82,7 @@ class _DetailsState extends State<Details> {
                   icon: toggle
                       ? const Icon(
                     Icons.favorite,
-                    color: Colors.green,
+                    color: AppColors.darkBlue,
                   )
                       : const Icon(Icons.favorite_border, color: Colors.grey),
                 ),
@@ -171,7 +172,7 @@ class _DetailsState extends State<Details> {
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
+                backgroundColor: AppColors.darkBlue,
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(
                     Radius.circular(10),

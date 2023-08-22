@@ -9,9 +9,11 @@ class FirebaseService {
   Future<List<Map<String, dynamic>>> getCarCategories() async {
     List<Map<String, dynamic>> categories = [];
     final response = await db.collection("cars-categories").get();
+    print("response ${response.docs}");
     for (var category in response.docs) {
       categories.add(category.data());
     }
+    print("cateegor $categories");
     return categories;
   }
 

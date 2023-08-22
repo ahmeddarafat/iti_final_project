@@ -69,7 +69,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               ),
               SizedBox(height: 30.h),
               SizedBox(
-                height: 480.h,
+                height: 450.h,
                 child: PageView.builder(
                   physics: const BouncingScrollPhysics(),
                   itemCount: AppConstants.onboardingContents.length,
