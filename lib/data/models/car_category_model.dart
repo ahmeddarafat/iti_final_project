@@ -23,14 +23,14 @@ class CarCategoryModel {
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'image': markImage,
-      'trademark': markName,
+      'mark': markName,
     };
   }
 
   factory CarCategoryModel.fromMap(Map<String, dynamic> map) {
     return CarCategoryModel(
       markImage: map['image'] as String,
-      markName: map['trademark'] as String,
+      markName: map['mark'] as String,
     );
   }
 

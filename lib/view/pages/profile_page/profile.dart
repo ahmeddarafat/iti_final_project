@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iti_final_project/data/source/local/app_prefs.dart';
 import 'package:iti_final_project/view/pages/profile_page/about_app.dart';
 
 import 'about_team.dart';
@@ -45,10 +46,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
           const SizedBox(
             height: 10,
           ),
-          const Center(
+          Center(
             child: Text(
-              "Car lover",
-              style: TextStyle(
+              AppPrefs.getEmail(),
+              style: const TextStyle(
                 color: Colors.grey,
                 fontSize: 15,
               ),
@@ -58,52 +59,53 @@ class _ProfileScreenState extends State<ProfileScreen> {
             height: 20,
           ),
           ListTile(
-            onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>TeamScreen()));
-          },
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => TeamScreen()));
+            },
             title: Text("About Team"),
-            trailing:Icon(Icons.arrow_forward_ios_sharp),
+            trailing: Icon(Icons.arrow_forward_ios_sharp),
             leading: Icon(Icons.person),
-            shape: RoundedRectangleBorder( //<-- SEE HERE
-              side: BorderSide(width: 2,
-              color: Colors.grey),
+            shape: RoundedRectangleBorder(
+              //<-- SEE HERE
+              side: BorderSide(width: 2, color: Colors.grey),
               borderRadius: BorderRadius.circular(20),
             ),
-
           ),
-          SizedBox(height: 20,),
-
+          SizedBox(
+            height: 20,
+          ),
           ListTile(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>AboutAppScreen()));
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => AboutAppScreen()));
             },
             title: Text("About App"),
-            trailing:Icon(Icons.arrow_forward_ios_sharp),
+            trailing: Icon(Icons.arrow_forward_ios_sharp),
             leading: Icon(Icons.touch_app_outlined),
-            shape: RoundedRectangleBorder( //<-- SEE HERE
-              side: BorderSide(width: 2,
-              color: Colors.grey),
+            shape: RoundedRectangleBorder(
+              //<-- SEE HERE
+              side: BorderSide(width: 2, color: Colors.grey),
               borderRadius: BorderRadius.circular(20),
             ),
-
           ),
-          SizedBox(height: 20,),
-
+          SizedBox(
+            height: 20,
+          ),
           ListTile(
-            onTap: (){
+            onTap: () {
               //put here Login Screen
 
               // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>()));
             },
             title: Text("Log Out"),
-            trailing:Icon(Icons.arrow_forward_ios_sharp),
+            trailing: Icon(Icons.arrow_forward_ios_sharp),
             leading: Icon(Icons.logout),
-            shape: RoundedRectangleBorder( //<-- SEE HERE
-              side: BorderSide(width: 2,
-              color: Colors.grey),
+            shape: RoundedRectangleBorder(
+              //<-- SEE HERE
+              side: BorderSide(width: 2, color: Colors.grey),
               borderRadius: BorderRadius.circular(20),
             ),
-
           ),
         ],
       ),

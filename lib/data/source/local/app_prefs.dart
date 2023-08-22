@@ -5,6 +5,7 @@ class PrefsKeys {
 
   static const String onboarding = "Onboarding";
   static const String login = "Login";
+  static const String email = "email";
 }
 
 class AppPrefs {
@@ -15,24 +16,33 @@ class AppPrefs {
   }
 
   /// OnBoarding
-  Future<void> setOnBoardingViewed() async {
+  static Future<void> setOnBoardingViewed() async {
     await _sharedPrefs.setBool(PrefsKeys.onboarding, true);
   }
 
-  bool isOnBoardingViewed() {
+  static bool isOnBoardingViewed() {
     return _sharedPrefs.getBool(PrefsKeys.onboarding) ?? false;
   }
 
   /// Auth
-  Future<void> setUserLoggedIn() async {
+  static Future<void> setUserLoggedIn() async {
     await _sharedPrefs.setBool(PrefsKeys.login, true);
   }
 
-  bool isUserLoggedIn() {
+  static bool isUserLoggedIn() {
     return _sharedPrefs.getBool(PrefsKeys.login) ?? false;
   }
 
-  Future<void> logout() async {
+  static Future<void> logout() async {
     await _sharedPrefs.remove(PrefsKeys.login);
+  }
+
+  /// email
+  static Future<void> setEmail(String email) async {
+    await _sharedPrefs.setString(PrefsKeys.login, email);
+  }
+
+  static String getEmail() {
+    return _sharedPrefs.getString(PrefsKeys.login) ?? "";
   }
 }
