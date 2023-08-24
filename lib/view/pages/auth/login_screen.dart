@@ -116,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       }
                       isLoading = false;
                       setState(() {});
-                    } else {}
+                    }
                   },
                 ),
                 const SizedBox(

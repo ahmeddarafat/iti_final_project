@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:iti_final_project/data/repository/repository.dart';
+import 'package:iti_final_project/view/pages/all_products/all_products.dart';
 import '../../../data/source/remote/firebase_service.dart';
 import '../../../resources/styles/app_colors.dart';
 import '../../widgets/my_text.dart';
@@ -68,7 +69,9 @@ class _CategoryScreenState extends State<CategoryScreen> {
                             ),
                             itemCount: data.length,
                             itemBuilder: (context, index) => InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => AllProducts(),));
+                              },
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: AppColors.kLightGrayColor,
