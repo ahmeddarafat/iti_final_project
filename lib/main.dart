@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iti_final_project/data/source/local/app_prefs.dart';
 import 'package:iti_final_project/view/pages/onboarding/onboarding_page.dart';
+import 'package:iti_final_project/view/pages/splash/splash_screen.dart';
 import 'package:iti_final_project/view_model/onboarding/onboarding_cubit.dart';
 
 import 'firebase_options.dart';
@@ -43,13 +44,13 @@ class MyApp extends StatelessWidget {
             title: 'ITI Final Project',
             theme: ThemeData(
               colorScheme:
-                  ColorScheme.fromSeed(seedColor: AppColors.kPrimaryColor),
+                  ColorScheme.fromSeed(seedColor: const Color(0xff013274)),
               useMaterial3: true,
             ),
             scrollBehavior: ScrollConfiguration.of(context).copyWith(
               physics: const BouncingScrollPhysics(),
             ),
-            home: const OnboardingPage(),
+            home: const SplashScreen(),
           ),
         );
       },

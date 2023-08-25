@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iti_final_project/resources/styles/app_colors.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../../../constants.dart';
 import '../../../data/source/local/app_prefs.dart';
@@ -30,7 +31,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return ModalProgressHUD(
       inAsyncCall: isLoading,
       child: Scaffold(
-        backgroundColor: kPrimaryColor,
+        backgroundColor: AppColors.kPrimaryColor,
         body: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Form(
@@ -82,7 +83,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   onChanged: (data) => password = data,
                 ),
                 SizedBox(
-                  height: 25.h,
+                  height: 30.h,
                 ),
                 CustomButton(
                   text: "Sign Up",

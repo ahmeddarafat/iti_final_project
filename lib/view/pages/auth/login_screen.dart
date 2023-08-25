@@ -2,7 +2,9 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iti_final_project/data/source/local/app_prefs.dart';
+import 'package:iti_final_project/resources/styles/app_colors.dart';
 import 'package:iti_final_project/view/pages/HomeScreen/home_screen.dart';
 import 'package:iti_final_project/view/pages/auth/signup_screen.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -33,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return ModalProgressHUD(
       inAsyncCall: isLoading,
       child: Scaffold(
-        backgroundColor: kPrimaryColor,
+        backgroundColor: AppColors.kPrimaryColor,
         body: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Form(
@@ -61,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      "Sign In",
+                      "Log In",
                       style: TextStyle(
                         color: kPrimaryColorWhite,
                         fontSize: 25,
@@ -77,8 +79,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   hintText: "Email",
                   onChanged: (data) => email = data,
                 ),
-                const SizedBox(
-                  height: 20.0,
+                SizedBox(
+                  height: 30.0.h,
                 ),
                 CustomTextField(
                   obscureText: true,
@@ -89,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 25,
                 ),
                 CustomButton(
-                  text: "Sign In",
+                  text: "Log In",
                   onTap: () async {
                     if (formKey.currentState!.validate()) {
                       isLoading = true;
